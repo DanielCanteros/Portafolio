@@ -1,0 +1,167 @@
+/* Variables CSS para el Full Page Scroller */
+:root {
+  --fps-duration: 700ms;
+  --fps-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fps-dot-size: 12px;
+  --fps-dot-spacing: 16px;
+  --vh: 1vh;
+}
+
+/* Soporte para viewport units dinámicas */
+@supports (height: 100dvh) {
+  :root {
+    --vh: 1dvh;
+  }
+}
+
+/* Reset para el scroll */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Clase para contenido solo visible para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Contenedor principal del full page scroller */
+.fps-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh) * 100);
+  overflow: hidden;
+}
+
+/* Contenedor de las secciones con animación */
+.fps-sections-container {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+/* Cada sección individual */
+.fps-section {
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh) * 100);
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Navegación por puntos */
+.fps-dot-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--fps-dot-spacing);
+}
+
+/* Cada punto de navegación */
+.fps-dot {
+  width: calc(var(--fps-dot-size) * 2);
+  height: calc(var(--fps-dot-size) * 2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Círculo interno del punto */
+.fps-dot-inner {
+  width: var(--fps-dot-size);
+  height: var(--fps-dot-size);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Estado hover del punto */
+.fps-dot:hover .fps-dot-inner {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+/* Estado activo del punto */
+.fps-dot-active .fps-dot-inner {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.3);
+}
+
+/* Estado focus para accesibilidad */
+.fps-dot:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Soporte para reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fps-sections-container {
+    transition: none !important;
+  }
+  
+  .fps-dot,
+  .fps-dot-inner {
+    transition: none;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .fps-dot-nav {
+    right: 10px;
+  }
+  
+  .fps-dot {
+    width: calc(var(--fps-dot-size) * 1.5);
+    height: calc(var(--fps-dot-size) * 1.5);
+  }
+  
+  .fps-dot-inner {
+    width: calc(var(--fps-dot-size) * 0.8);
+    height: calc(var(--fps-dot-size) * 0.8);
+  }
+}
+
+/* Mejorar hit area en dispositivos táctiles */
+@media (pointer: coarse) {
+  .fps-dot {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Optimizaciones de performance */
+.fps-container,
+.fps-sections-container,
+.fps-section {
+  contain: layout style paint;
+}
+
+/* Efecto hover para el círculo del portafolio */
+.portfolio-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(13, 202, 240, 0.6) !important;
+}
