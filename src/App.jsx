@@ -82,7 +82,7 @@ function App() {
             style={{
               backgroundColor: section.bgColor,
               color: 'white',
-              padding: '2rem',
+              padding: '1rem',
               minHeight: '100vh',
               width: '100%',
               display: 'flex',
@@ -109,10 +109,10 @@ function App() {
             
             {section.id === 'about' && (
               <HeroSection section={section} index={index}>
-                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                <h1 className="display-2 fw-bold mb-2 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
                   {section.title}
                 </h1>
-                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                <p className="lead mb-2 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
                 <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
@@ -123,10 +123,10 @@ function App() {
             
             {section.id === 'skills' && (
               <HeroSection section={section} index={index}>
-                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                <h1 className="display-2 fw-bold mb-2 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
                   {section.title}
                 </h1>
-                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                <p className="lead mb-2 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
                 <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
@@ -137,10 +137,10 @@ function App() {
             
             {section.id === 'projects' && (
               <HeroSection section={section} index={index}>
-                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                <h1 className="display-2 fw-bold mb-2 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
                   {section.title}
                 </h1>
-                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                <p className="lead mb-2 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
                 <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
@@ -151,10 +151,10 @@ function App() {
             
             {section.id === 'contact' && (
               <HeroSection section={section} index={index}>
-                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                <h1 className="display-2 fw-bold mb-2 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
                   {section.title}
                 </h1>
-                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                <p className="lead mb-2 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
                 <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>

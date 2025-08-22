@@ -39,7 +39,7 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <div className="row g-4 mt-4 justify-content-center">
+    <div className="row g-2 mt-2 justify-content-center">
       {projects.map((project, idx) => {
         let cardStyle = {};
         let collapsed = false;
@@ -122,17 +122,6 @@ const ProjectsSection = () => {
                     Ver proyecto ↗
                   </a>
                 </>
-              )}
-              {/* Indicador visual para expandir en móvil */}
-              {isMobile && collapsed && (
-                <div className="position-absolute bottom-0 start-0 w-100 text-center pb-2">
-                  <span style={{
-                    color: '#0dcaf0',
-                    fontSize: '0.95rem',
-                    opacity: 0.7,
-                    marginTop: '10px',
-                  }}>Expandir</span>
-                </div>
               )}
             </div>
           </div>
