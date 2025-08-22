@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection';
 import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
+import Experiencia from './components/Experiencia';
 
 // Secciones del portafolio
 const sections = [
@@ -25,13 +26,13 @@ const sections = [
   {
     id: 'skills',
     title: 'Habilidades',
-    content: 'React.js, Next.js, Tailwind CSS, Node.js, MongoDB',
+    content: 'Principales herramientas utilizadas',
     bgColor: '#0f3460'
   },
   {
     id: 'projects',
     title: 'Proyectos',
-    content: 'Portafolio de trabajos y experiencias profesionales',
+    content: 'Experiencias profesionales',
     bgColor: '#533483'
   },
   {
@@ -41,6 +42,27 @@ const sections = [
     bgColor: '#2d1b45'
   }
 ];
+
+const techStack = [
+  'React.js',
+  'Next.js (básico)',
+  'React Native',
+  'Tailwind CSS',
+  'Bootstrap 5',
+  'Node.js (Express)',
+  'MongoDB',
+  'Vercel / Render',
+  'Git / GitHub',
+  'WordPress',
+];
+
+const personal = {
+  name: 'Daniel Canteros',
+  email: 'danielcanteros1998@gmail.com',
+  phone: '+595 992756617',
+  linkedin: 'https://www.linkedin.com/in/daniel-canteros-41b761135/',
+  github: 'https://github.com/DanielCanteros',
+};
 
 function App() {
   const handleIndexChange = (index) => {
@@ -56,6 +78,7 @@ function App() {
             id={section.id}
             role="region"
             aria-labelledby={`heading-${index}`}
+            className={`fade-in-section`}
             style={{
               backgroundColor: section.bgColor,
               color: 'white',
@@ -75,12 +98,62 @@ function App() {
               </div>
             )}
             
-            {/* MUCHO MÁS LIMPIO: Solo HeroSection maneja todo */}
-            <HeroSection 
-              section={section} 
-              index={index} 
-              showHeader={index === 0}
-            />
+            {/* Lógica de renderizado donde corresponde - en App.jsx */}
+            {section.id === 'home' && (
+              <HeroSection 
+                section={section} 
+                index={index} 
+                showHeader={index === 0}
+              />
+            )}
+            
+            {section.id === 'about' && (
+              <HeroSection section={section} index={index}>
+                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                  {section.title}
+                </h1>
+                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                  {section.content}
+                </p>
+                {/* <Experiencia /> */}
+              </HeroSection>
+            )}
+            
+            {section.id === 'skills' && (
+              <HeroSection section={section} index={index}>
+                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                  {section.title}
+                </h1>
+                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                  {section.content}
+                </p>
+                <SkillsSection />
+              </HeroSection>
+            )}
+            
+            {section.id === 'projects' && (
+              <HeroSection section={section} index={index}>
+                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                  {section.title}
+                </h1>
+                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                  {section.content}
+                </p>
+                <ProjectsSection />
+              </HeroSection>
+            )}
+            
+            {section.id === 'contact' && (
+              <HeroSection section={section} index={index}>
+                <h1 className="display-2 fw-bold mb-4 text-center animate-fade-up" style={{ animationDelay: '0.05s' }}>
+                  {section.title}
+                </h1>
+                <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
+                  {section.content}
+                </p>
+                <ContactSection />
+              </HeroSection>
+            )}
           </section>
         ))}
       </FullPageScroller>

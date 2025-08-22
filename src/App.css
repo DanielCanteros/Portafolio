@@ -153,15 +153,111 @@ html, body, #root {
   }
 }
 
-/* Optimizaciones de performance */
-.fps-container,
-.fps-sections-container,
-.fps-section {
-  contain: layout style paint;
+.project-card {
+  max-height: 340px;
+  overflow-y: auto;
 }
 
-/* Efecto hover para el círculo del portafolio */
-.portfolio-circle:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(13, 202, 240, 0.6) !important;
+@media (max-width: 576px) {
+  .project-card {
+    max-height: 260px;
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+  .project-card h4 {
+    font-size: 1.1rem;
+  }
+  .project-card p,
+  .project-card .small {
+    font-size: 0.95rem;
+  }
 }
+
+/* Animación de entrada para todas las secciones principales */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: fadeInSection 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.05s;
+  will-change: opacity, transform;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animaciones para entrada de títulos y párrafos en el hero */
+.hero-title,
+.hero-subtitle,
+.hero-description,
+.hero-actions {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: heroFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+.hero-title { animation-delay: 0.05s !important; }
+.hero-subtitle { animation-delay: 0.15s !important; }
+.hero-description { animation-delay: 0.25s !important; }
+.hero-actions { animation-delay: 0.35s !important; }
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-up[style*="animation-delay"] {
+  animation-delay: inherit;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-animate {
+  opacity: 1;
+}
+
+.contact-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: contactFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes contactFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
