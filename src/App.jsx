@@ -13,7 +13,7 @@ const sections = [
   {
     id: 'home',
     title: 'Daniel Canteros',
-    subtitle: 'Frontend Developer',
+    subtitle: 'Fullstack Developer',
     content: 'Desarrollador especializado en React, Next.js y experiencias web modernas',
     bgColor: '#1a1a2e'
   },
@@ -115,7 +115,9 @@ function App() {
                 <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
-                {/* <Experiencia /> */}
+                <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
+                  <Experiencia />
+                </div>
               </HeroSection>
             )}
             
@@ -127,7 +129,9 @@ function App() {
                 <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
-                <SkillsSection />
+                <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
+                  <SkillsSection />
+                </div>
               </HeroSection>
             )}
             
@@ -139,7 +143,9 @@ function App() {
                 <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
-                <ProjectsSection />
+                <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
+                  <ProjectsSection />
+                </div>
               </HeroSection>
             )}
             
@@ -151,7 +157,9 @@ function App() {
                 <p className="lead mb-4 text-center mx-auto animate-fade-up" style={{ animationDelay: '0.15s', maxWidth: '600px' }}>
                   {section.content}
                 </p>
-                <ContactSection />
+                <div className="animate-fade-up" style={{ animationDelay: '0.25s' }}>
+                  <ContactSection />
+                </div>
               </HeroSection>
             )}
           </section>
